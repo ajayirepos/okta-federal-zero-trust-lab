@@ -1,4 +1,4 @@
-# okta-federal-zero-trust-lab
+# Okta Federal Zero-Trust Lab
 A full Zero Trust identity architecture using Okta Workforce Identity Cloud (SAML, OIDC, JIT/PAM, SCIM, AWS OIDC, API automation).
 
 Okta Federal Zero Trust Identity Lab
@@ -43,3 +43,7 @@ Temporary admin access is granted
 Privileged actions logged to SIEM
 PAM-Session-Reviewers analyze logs
 This demonstrates a federal-grade privileged access model.
+Additional Documentation
+   SCIM Lifecycle Architecture
+   AWS OIDC Integration
+   API Automation Examples
