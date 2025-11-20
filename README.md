@@ -1,91 +1,90 @@
 # Okta Federal Zero-Trust Lab
-A full Zero Trust identity architecture using Okta Workforce Identity Cloud (SAML, OIDC, JIT/PAM, SCIM, AWS OIDC, API automation).
-
-Okta Federal Zero Trust Identity Lab
+      Okta Federal Zero Trust Identity Lab
 Author: Bolaji Ajayi
-Platform: Okta Workforce Identity Cloud
+
 Tenant: https://trial-6169156.okta.com
-Focus: Zero Trust, SAML/OIDC, PAM/JIT, SCIM Lifecycle, MFA/FIDO2, Federal IAM
+
+Focus: Zero Trust, Modern + Legacy Apps, MFA/FIDO2, Privileged Access, SCIM Lifecycle, AWS OIDC, API Automation
 
 
-      Overview
-This project simulates a federal-grade Zero Trust identity architecture using the Okta Workforce Identity Cloud. The lab covers modern and legacy application integration, phishing-resistant authentication, privileged access modeling, and lifecycle automation. The design aligns with NIST 800-207 and federal identity modernization strategies.
+      Project Overview
+This project simulates a complete federal-grade Zero Trust identity architecture using the Okta Workforce Identity Cloud. It includes both modern (OIDC) and legacy (SAML) application integrations, phishing-resistant authentication, privileged access controls, lifecycle automation concepts, and multi-cloud identity federation.
+This lab aligns directly with federal Zero Trust requirements (NIST 800-207) and with the responsibilities of an Okta Senior Solutions Engineer (Federal).
+      
+      Key Capabilities Implemented
+            OIDC integration (modern case management portal)
+            SAML 2.0 integration (legacy HR/payroll system)
+            Zero Trust app sign-on policies
+            Phishing-resistant MFA (WebAuthn/FIDO2 + Okta Verify)
+            Privileged Access (JIT/PAM) with admin FIDO2-only rules
+            SCIM lifecycle architecture (conceptual)
+            AWS OIDC federation model
+            Okta API automation (Python)
+            Screenshots & documentation for proof-of-work
+            Audit + SIEM logging flow (Splunk / Sentinel)
 
-      Key Features
-   SAML and OIDC application integrations
-   Zero Trust app sign-on policies
-   Phishing-resistant MFA (FIDO2/WebAuthn)
-   Privileged Access + JIT elevation model
-   SCIM lifecycle architecture
-   AWS OIDC trust model
-   Okta API automation examples
-   SIEM logging flow for federal audit readiness
-
-      Identity Groups & Roles
-   Federal-Users – Standard workforce access
-   Federal-Admins – Privileged identities; FIDO2-only authentication
-   PAM-Session-Reviewers – Security team reviewing admin actions
-
-
-      Applications
-OIDC App: Federal Case Management Portal
-   OAuth 2.0 / OIDC integration
-   Used for modern app federation
-SAML App: Legacy HR & Payroll System
-   SAML 2.0
-   Simulates legacy federal apps used in modernization projects
+      Identity Groups Used
+            Federal-Users → OIDC + SAML access, MFA required
+            Federal-Admins → FIDO2-only privileged access
+            PAM-Session-Reviewers → analyzes privileged actions
 
       Zero Trust Policies
-OIDC Zero Trust
-   Rule 1: Require MFA (Federal-Users)
-   Rule 2: Deny high-risk login attempts
-SAML Zero Trust
-   Admin Only Rule → FIDO2 Only
-   User Rule → MFA required, limited privileges
+            OIDC App — Case Management Portal
+            MFA required (Okta Verify / WebAuthn)
+            Block high-risk login attempts (new device, unknown network, outside US)
+            SAML App — Legacy HR System
+            Admins: FIDO2-only, strict access
+            Users: MFA required
 
-      Privileged Access (JIT/PAM Model)
-Workflow:
-   Admin authenticates with FIDO2
-   Okta verifies device, risk, IP
-   Temporary admin access is granted
-   Privileged actions logged to SIEM
-   PAM-Session-Reviewers analyze logs
-This demonstrates a federal-grade privileged access model.
+      Privileged Access (JIT / PAM Model)
+            Admin authenticates via FIDO2
+            Okta checks device, risk, and network
+            Admin receives temporary elevated privileges
+            All privileged activity is logged
+            PAM-Session-Reviewers review logs in SIEM
+            This simulates federal privileged access governance.
 
-Additional Documentation
-      SCIM Lifecycle Architecture
-      AWS OIDC Integration
-      API Automation Examples
+      Documentation
+            SCIM Lifecycle Architecture
+            → docs/scim-lifecycle.md
+            AWS OIDC Integration
+            → docs/aws-oidc.md
+            API Automation (Python Examples)
+            → docs/api-automation.md
+            Full Federal POC Document
+            → (poc/POC_Document.md) 
 
-      Logging & SIEM
-Events streamed to Splunk/Sentinel:
-      MFA attempts
-      WebAuthn authentication
-      App sign-on allow/deny
-      Admin elevation
-      Group changes
-      Anomaly detection
-      Supports federal audit & compliance.
 
-   
-      Competitive Positioning
-      
-   Okta vs Azure AD
-   Okta = neutral, multi-cloud
-   Azure AD = tied to Microsoft ecosystem
-   Okta = stronger app integrations
-   Azure = good for M365 only
-   Okta vs Ping
-   Okta = cloud-first, faster to deploy
-   Ping = enterprise legacy-heavy
 
-      Summary
-This lab demonstrates a complete Zero Trust identity architecture for federal environments using Okta Workforce Identity Cloud. It includes:
-Modern OIDC
-Legacy SAML
-MFA/FIDO2
-JIT/PAM privileged access
-SCIM lifecycle
-Multi-cloud OIDC
-API automation
-Federal audit logging
+      API Scripts
+            Example Python user creation script is located at:
+            → api/create_user.py
+            Demonstrates REST API and automation usage.
+
+
+      Screenshots
+            All screenshots of your Okta setup go here:
+            → screenshots/
+            
+            This includes:
+                        App integrations
+                        MFA settings
+                        Groups
+                        Policies
+                        User flows
+            
+                  Diagrams
+            Place architectural diagrams in:
+            → diagrams/
+            
+            Planned diagrams:
+            
+                        Zero Trust Architecture
+                        SCIM Lifecycle Flow
+                        AWS OIDC Flow
+                        JIT/PAM Flow
+            
+
+            
+                        Summary
+            This lab demonstrates how Okta’s Workforce Identity Cloud can secure workforce identities in a federal environment through Zero Trust principles, modern authentication protocols, app modernization, privileged access controls, lifecycle governance, and multi-cloud federation.
